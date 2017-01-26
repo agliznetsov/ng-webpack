@@ -1,7 +1,7 @@
-angular.module('ng-webpack').directive('app', function () {
+angular.module('ng-webpack').directive('main', function () {
     return {
         restrict: 'E',
-        template: require('./app.html'),
+        template: require('./main.html'),
         replace: true,
         scope: {
         },
