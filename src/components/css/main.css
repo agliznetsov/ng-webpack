@@ -3,3 +3,7 @@
 body {
    padding: 20px;
 }
+
+.logo {
+   background-image:url(/static/img/logo.png);
+}

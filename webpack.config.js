@@ -31,11 +31,14 @@ module.exports = function () {
     config.entry = {
         app: './src/index.js',
         vendor: [
-            './bower_components/lodash/dist/lodash.js',
-            './bower_components/jquery/dist/jquery.js',
-            './bower_components/angular/angular.js',
+            'lodash',
+            'jquery',
+            'angular',
+            'angular-animate',
+            'angular-ui-bootstrap',
 
-            './bower_components/bootstrap/dist/css/bootstrap.min.css'
+            'bootstrap',
+            'bootstrap/dist/css/bootstrap.css'
         ]
     };
 
@@ -76,7 +79,11 @@ module.exports = function () {
         new ExtractTextPlugin('css/' + targetFileName + '.css'),
         new CopyWebpackPlugin([
             {from: 'src/static', to: 'static'}
-        ])
+        ]),
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery"
+        })
     ];
 
     config.devServer = {

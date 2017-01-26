@@ -6,5 +6,17 @@
         <button id="btn" class="btn btn-success" ng-click="onClick()">
             <i class="glyphicon glyphicon-star"></i> Click Me
         </button>
+        <button type="button" class="btn btn-default" ng-click="open()">Open me!</button>
+
+        <span uib-dropdown on-toggle="toggled(open)">
+          <a href id="simple-dropdown" uib-dropdown-toggle>
+            Click me for a dropdown, yo!
+          </a>
+          <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+            <li ng-repeat="choice in items">
+              <a href>{{choice}}</a>
+            </li>
+          </ul>
+        </span>
     </div>
 </div>

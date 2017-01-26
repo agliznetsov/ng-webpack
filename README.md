@@ -4,7 +4,6 @@ Angular 1.x webpack-based project template
 ### Prepare
 
 `npm install`
-`bower install`
 
 ### Run
 
