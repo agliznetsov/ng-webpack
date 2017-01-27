@@ -54,12 +54,16 @@ module.exports = function () {
                 loaders: ['ng-annotate']
             },
             {
-                test: /\.css$/,
+                test: /node_modules.*\.css$/,
                 loader: ExtractTextPlugin.extract("style-loader", "css-loader")
             },
             {
+                test: /src.*\.css$/,
+                loader: ExtractTextPlugin.extract("style-loader", "css-loader?url=false")
+            },
+            {
                 test: /\.html$/,
-                loader: 'html'
+                loader: 'html?attrs=false' // do not resolve img.src
             },
             {
                 test: /\.(woff|woff2|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
@@ -91,14 +95,30 @@ module.exports = function () {
             '/api': {
                 target: 'http://localhost:8080'
             }
+        },
+        stats: {
+            colors: true,
+            hash: false,
+            version: false,
+            timings: false,
+            assets: false,
+            chunks: false,
+            modules: false,
+            reasons: false,
+            children: false,
+            source: false,
+            errors: true,
+            errorDetails: true,
+            warnings: false,
+            publicPath: false
         }
+        // stats: 'errors-only'
     };
 
     if (release) {
         config.plugins.push(new webpack.optimize.UglifyJsPlugin());
     } else {
         config.devtool = 'source-map';
-        config.output.publicPath = 'http://localhost:9000/';
     }
 
     if (lazy) {

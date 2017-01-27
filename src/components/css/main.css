@@ -2,8 +2,6 @@
 
 body {
    padding: 20px;
+   background: yellow;
 }
 
-.logo {
-   background-image:url(/static/img/logo.png);
-}

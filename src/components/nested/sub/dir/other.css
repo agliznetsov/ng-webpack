@@ -1,0 +1,13 @@
+/*other.css*/
+
+img {
+    vertical-align: top !important;
+}
+
+.logo {
+    display: inline-block;
+    background-image:url(../static/img/logo.png);
+    background-repeat: no-repeat;
+    width: 256px;
+    height: 256px;
+}
